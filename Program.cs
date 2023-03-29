@@ -1,11 +1,24 @@
 using Microsoft.EntityFrameworkCore;
 using Office.Web.DAL;
-using Office.Web.Domain;
 using Office.Web.Domain.IServices;
 using Office.Web.Domain.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(MyAllowSpecificOrigins,
+    builder =>
+    {
+        builder.WithOrigins("http://localhost:7223",
+                            "http://localhost:5198"
+                            )
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+    });
+});
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddControllers();
@@ -32,7 +45,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.UseHttpsRedirection();
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 

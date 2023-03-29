@@ -8,11 +8,13 @@ using Microsoft.EntityFrameworkCore;
 using Office.Web.Domain.Models;
 using Office.Web.DAL;
 using Office.Web.Domain.IServices;
+using Microsoft.AspNetCore.Cors;
 
 namespace Office.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("AllowOrigin")]
     public class UserController : ControllerBase
     {
         
