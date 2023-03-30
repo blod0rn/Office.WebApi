@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Office.Web.DAL;
@@ -11,9 +12,11 @@ using Office.Web.DAL;
 namespace Office.Web.Migrations
 {
     [DbContext(typeof(OfficedbContext))]
-    partial class OfficedbContextModelSnapshot : ModelSnapshot
+    [Migration("20230330191325_trash")]
+    partial class trash
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -169,7 +172,7 @@ namespace Office.Web.Migrations
             modelBuilder.Entity("Office.Web.DAL.Entities.EmployeeEntity", b =>
                 {
                     b.HasOne("Office.Web.DAL.Entities.DepartamentEntity", "Departament")
-                        .WithMany("Employees")
+                        .WithMany()
                         .HasForeignKey("DepartamentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -202,11 +205,6 @@ namespace Office.Web.Migrations
                     b.Navigation("Employee");
 
                     b.Navigation("Project");
-                });
-
-            modelBuilder.Entity("Office.Web.DAL.Entities.DepartamentEntity", b =>
-                {
-                    b.Navigation("Employees");
                 });
 #pragma warning restore 612, 618
         }

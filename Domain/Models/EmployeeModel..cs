@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿
+
 using Office.Web.DAL.Entities;
 
 namespace Office.Web.Domain.Models;
@@ -14,9 +13,6 @@ public class EmployeeModel
     public string? MiddleName { get; set; }
 
     public string LastName { get; set; } = null!;
-
-    public string FullName { get; set; } = null!;
-
     
     public WorkloadModel? Workload { get; set; }
     public int WorkloadId { get; set; }
@@ -27,4 +23,6 @@ public class EmployeeModel
     public string? Skills { get; set; }
 
     public bool IsDepartamentHead { get; set; }
+
+   
 }

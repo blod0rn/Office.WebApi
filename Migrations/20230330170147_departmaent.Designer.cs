@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Office.Web.DAL;
@@ -11,9 +12,11 @@ using Office.Web.DAL;
 namespace Office.Web.Migrations
 {
     [DbContext(typeof(OfficedbContext))]
-    partial class OfficedbContextModelSnapshot : ModelSnapshot
+    [Migration("20230330170147_departmaent")]
+    partial class departmaent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,6 +24,21 @@ namespace Office.Web.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("EmployeeEntityProjectEntity", b =>
+                {
+                    b.Property<int>("EmployeesListId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ProjectListId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("EmployeesListId", "ProjectListId");
+
+                    b.HasIndex("ProjectListId");
+
+                    b.ToTable("EmployeeEntityProjectEntity");
+                });
 
             modelBuilder.Entity("Office.Web.DAL.Entities.DepartamentEntity", b =>
                 {
@@ -57,9 +75,6 @@ namespace Office.Web.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<bool>("IsDepartamentHead")
-                        .HasColumnType("boolean");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -164,6 +179,46 @@ namespace Office.Web.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Workloads");
+                });
+
+            modelBuilder.Entity("Office.Web.Domain.Models.UserModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameUser")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserModel");
+                });
+
+            modelBuilder.Entity("EmployeeEntityProjectEntity", b =>
+                {
+                    b.HasOne("Office.Web.DAL.Entities.EmployeeEntity", null)
+                        .WithMany()
+                        .HasForeignKey("EmployeesListId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Office.Web.DAL.Entities.ProjectEntity", null)
+                        .WithMany()
+                        .HasForeignKey("ProjectListId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Office.Web.DAL.Entities.EmployeeEntity", b =>

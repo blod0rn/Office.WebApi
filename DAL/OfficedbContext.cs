@@ -37,7 +37,7 @@ public class OfficedbContext : DbContext
         return await base.SaveChangesAsync();
     }
 
-    public DbSet<Office.Web.Domain.Models.UserModel>? UserModel { get; set; }
+   
 
 
 }

@@ -16,6 +16,8 @@ namespace Office.Web.Domain
 
             CreateMap<EmployeeEntity, EmployeeModel>();
             CreateMap<EmployeeModel, EmployeeEntity>();
+           // CreateMap<List<EmployeeEntity>, List<EmployeeModel>>();
+           // CreateMap<List<EmployeeModel>, List<EmployeeEntity>>();
 
             CreateMap<EmployeesProjectEntity, EmployeesProjectModel>();
             CreateMap<EmployeesProjectModel, EmployeesProjectEntity>();

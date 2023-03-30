@@ -14,20 +14,20 @@ public class EmployeeEntity : BaseEntity
 
     public string LastName { get; set; } = null!;
 
-    public string FullName { get; set; } = null!;
-
     [JsonIgnore]
     [ForeignKey("WorkloadId")]
     public WorkloadEntity? Workload { get; set; }
     public int WorkloadId { get; set; }
+
     [JsonIgnore]
     [ForeignKey("DepartamentId")]
     public DepartamentEntity Departament { get; set; } = null!;
     public int DepartamentId { get; set; }
 
-    public string? skills { get; set; }
+    public string? Skills { get; set; }
 
-    public bool isDepartamentHead { get; set; }
-
+    public bool IsDepartamentHead { get; set; } 
+   
+   
 
 }

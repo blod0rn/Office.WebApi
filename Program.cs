@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Office.Web.DAL;
+using Office.Web.DAL.Repositories;
 using Office.Web.Domain.IServices;
 using Office.Web.Domain.Services;
 
@@ -12,9 +13,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(MyAllowSpecificOrigins,
     builder =>
     {
-        builder.WithOrigins("http://localhost:7223",
-                            "http://localhost:5198"
-                            )
+        builder.AllowAnyOrigin()
                             .AllowAnyHeader()
                             .AllowAnyMethod();
     });
@@ -29,10 +28,18 @@ builder.Services.AddDbContext<OfficedbContext>(opt =>
     opt.UseNpgsql("Host=localhost;Port=5432;Database=officeDb;Username=postgres;Password=admin");
 }
 );
+
     
     
 builder.Services.AddTransient<IDbRepository, DbRepository>();
-builder.Services.AddTransient<IUserService, UserService>();
+
+builder.Services.AddTransient<IDepartamentRepository, DepartamentRepository>();
+builder.Services.AddTransient<IDepartamentService, DepartamentService>();
+
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IUserService2, UserService2>();
+
+
 
 
 
