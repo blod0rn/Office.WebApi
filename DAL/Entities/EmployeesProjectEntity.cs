@@ -1,7 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
@@ -17,7 +14,6 @@ public  class EmployeesProjectEntity
     public int EmployeeId { get; set; }
 
     [JsonIgnore]
-    [Key]
     [ForeignKey("ProjectId")]
     public ProjectEntity Project { get; set; } = null!;
     public int ProjectId { get; set; }  

@@ -12,5 +12,5 @@ public class DepartamentModel
 
     public string InfoDepartament { get; set; } = null!;
 
-    
+   
 }

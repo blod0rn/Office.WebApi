@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Office.Web.DAL;
@@ -11,9 +12,11 @@ using Office.Web.DAL;
 namespace Office.Web.Migrations
 {
     [DbContext(typeof(OfficedbContext))]
-    partial class OfficedbContextModelSnapshot : ModelSnapshot
+    [Migration("20230330184452_init111")]
+    partial class init111
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,6 +71,9 @@ namespace Office.Web.Migrations
                     b.Property<string>("MiddleName")
                         .HasColumnType("text");
 
+                    b.Property<int?>("ProjectEntityId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Skills")
                         .HasColumnType("text");
 
@@ -77,6 +83,8 @@ namespace Office.Web.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("DepartamentId");
+
+                    b.HasIndex("ProjectEntityId");
 
                     b.HasIndex("WorkloadId");
 
@@ -166,6 +174,31 @@ namespace Office.Web.Migrations
                     b.ToTable("Workloads");
                 });
 
+            modelBuilder.Entity("Office.Web.Domain.Models.UserModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameUser")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserModel");
+                });
+
             modelBuilder.Entity("Office.Web.DAL.Entities.EmployeeEntity", b =>
                 {
                     b.HasOne("Office.Web.DAL.Entities.DepartamentEntity", "Departament")
@@ -173,6 +206,10 @@ namespace Office.Web.Migrations
                         .HasForeignKey("DepartamentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Office.Web.DAL.Entities.ProjectEntity", null)
+                        .WithMany("EmployeesList")
+                        .HasForeignKey("ProjectEntityId");
 
                     b.HasOne("Office.Web.DAL.Entities.WorkloadEntity", "Workload")
                         .WithMany()
@@ -207,6 +244,11 @@ namespace Office.Web.Migrations
             modelBuilder.Entity("Office.Web.DAL.Entities.DepartamentEntity", b =>
                 {
                     b.Navigation("Employees");
+                });
+
+            modelBuilder.Entity("Office.Web.DAL.Entities.ProjectEntity", b =>
+                {
+                    b.Navigation("EmployeesList");
                 });
 #pragma warning restore 612, 618
         }

@@ -9,4 +9,6 @@ public  class ProjectEntity : BaseEntity
     public string NameProject { get; set; } = null!;
 
     public string? InfoProject { get; set; }  
+
+    
 }
