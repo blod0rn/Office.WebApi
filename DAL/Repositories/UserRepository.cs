@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Office.Web.DAL;
 using Office.Web.DAL.Entities;
-using Office.Web.DAL.Repositories;
+using Office.Web.DAL.IRepositories;
 using Office.Web.Domain.Models;
 
 namespace Office.Web.DAL.Repositories
