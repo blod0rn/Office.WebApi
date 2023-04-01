@@ -4,8 +4,10 @@ namespace Office.Web.Domain.IServices
 {
     public interface IDepartamentService
     {
-        Task<DepartamentModel> GetDepartament(int departamentId);
+        Task<DepartamentDto> GetInfoDepartament(int departamentId);
 
-        Task<List<EmployeeModel>> GetEmployees(int departamentId);
+        Task <EmployeeDto> GetDepartamentHead(int departamentId);
+
+        Task<List<DepartamentDto>> GetProjectDepartament(int departamentId);
     }
 }

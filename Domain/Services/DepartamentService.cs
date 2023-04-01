@@ -15,14 +15,19 @@ namespace Office.Web.Domain.Services
         }
 
 
-        public async Task<DepartamentModel> GetDepartament(int departamentId)
+        public async Task<DepartamentDto> GetInfoDepartament(int departamentId)
         {
-            return await _departamentRepository.Get(departamentId);
+            return await _departamentRepository.GetGeneralInfo(departamentId);
         }
 
-        public async Task<List<EmployeeModel>> GetEmployees(int departamentId)
+        public async Task <EmployeeDto> GetDepartamentHead(int departamentId)
         {
-            return await _departamentRepository.GetEmployees(departamentId);
+            return await _departamentRepository.GetDepartamentHead(departamentId);
+        }
+
+        public async Task<List<DepartamentDto>> GetProjectDepartament(int departamentId)
+        {
+            return await _departamentRepository.GetProjectDepartament(departamentId);
         }
     }
 }

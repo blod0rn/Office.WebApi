@@ -1,5 +1,7 @@
 ﻿
 
+using Office.Web.DAL.Entities;
+
 namespace Office.Web.Domain.Models;
 
 public class ProjectModel
@@ -9,5 +11,6 @@ public class ProjectModel
 
     public string? InfoProject { get; set; }
 
+    public List<EmployeesProjectModel> Employees { get; set; } = new List<EmployeesProjectModel>();
 
 }

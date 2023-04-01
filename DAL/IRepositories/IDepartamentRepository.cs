@@ -4,8 +4,10 @@ namespace Office.Web.DAL.Repositories
 {
     public interface IDepartamentRepository
     {
-        Task<DepartamentModel> Get(int departamentId);
+        Task<DepartamentDto> GetGeneralInfo(int departamentId);
 
-        Task<List<EmployeeModel>> GetEmployees(int departamentId);
+        Task <EmployeeDto> GetDepartamentHead(int departamentId);
+
+        Task<List<DepartamentDto>> GetProjectDepartament(int departamentId);
     }
 }

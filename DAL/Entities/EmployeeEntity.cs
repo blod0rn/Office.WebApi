@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Office.Web.DAL.Entities;
 
+[Table("Employees")]
 public class EmployeeEntity : BaseEntity
 {
 
@@ -12,12 +13,16 @@ public class EmployeeEntity : BaseEntity
 
     public string LastName { get; set; } = null!;
 
-    [JsonIgnore]
+    public string Post { get; set; } = null!;
+
+
     [ForeignKey("WorkloadId")]
     public WorkloadEntity? Workload { get; set; }
+   
+    [JsonIgnore]
     public int WorkloadId { get; set; }
 
-    [JsonIgnore]
+    
     [ForeignKey("DepartamentId")]
     public DepartamentEntity Departament { get; set; } = null!;
     public int DepartamentId { get; set; }
@@ -26,6 +31,7 @@ public class EmployeeEntity : BaseEntity
 
     public bool IsDepartamentHead { get; set; } 
    
+    
    
 
 }

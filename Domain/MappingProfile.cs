@@ -11,16 +11,19 @@ namespace Office.Web.Domain
         public MappingProfile()
         {
             // CreateMap<List<T>, List<T>>();
-            CreateMap<DepartamentEntity, DepartamentModel>();
-            CreateMap<DepartamentModel, DepartamentEntity>();
+            CreateMap<DepartamentEntity, DepartamentDto>();
+            CreateMap<DepartamentDto, DepartamentEntity>();
 
-            CreateMap<EmployeeEntity, EmployeeModel>();
-            CreateMap<EmployeeModel, EmployeeEntity>();
+            CreateMap<EmployeeEntity, EmployeeDto>();
+            CreateMap<EmployeeDto, EmployeeEntity>();
            // CreateMap<List<EmployeeEntity>, List<EmployeeModel>>();
            // CreateMap<List<EmployeeModel>, List<EmployeeEntity>>();
 
             CreateMap<EmployeesProjectEntity, EmployeesProjectModel>();
             CreateMap<EmployeesProjectModel, EmployeesProjectEntity>();
+
+            CreateMap<EmployeesProjectEntity, EmployeeProjectDto>();
+            CreateMap<EmployeeProjectDto, EmployeesProjectEntity>();
 
             CreateMap<ProjectEntity, ProjectModel>();
             CreateMap<ProjectModel, ProjectEntity>();

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Office.Web.DAL;
@@ -11,9 +12,11 @@ using Office.Web.DAL;
 namespace Office.Web.Migrations
 {
     [DbContext(typeof(OfficedbContext))]
-    partial class OfficedbContextModelSnapshot : ModelSnapshot
+    [Migration("20230401132730_yep")]
+    partial class yep
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,7 +43,7 @@ namespace Office.Web.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Departaments", (string)null);
+                    b.ToTable("Departaments");
                 });
 
             modelBuilder.Entity("Office.Web.DAL.Entities.EmployeeEntity", b =>
@@ -84,7 +87,7 @@ namespace Office.Web.Migrations
 
                     b.HasIndex("WorkloadId");
 
-                    b.ToTable("Employees", (string)null);
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("Office.Web.DAL.Entities.EmployeesProjectEntity", b =>
@@ -105,7 +108,7 @@ namespace Office.Web.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("EmployeesProjects", (string)null);
+                    b.ToTable("EmployeesProjects");
                 });
 
             modelBuilder.Entity("Office.Web.DAL.Entities.ProjectEntity", b =>
@@ -130,7 +133,7 @@ namespace Office.Web.Migrations
 
                     b.HasIndex("DepartamentEntityId");
 
-                    b.ToTable("Projects", (string)null);
+                    b.ToTable("Projects");
                 });
 
             modelBuilder.Entity("Office.Web.DAL.Entities.UserEntity", b =>
@@ -155,7 +158,7 @@ namespace Office.Web.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Office.Web.DAL.Entities.WorkloadEntity", b =>
@@ -172,7 +175,7 @@ namespace Office.Web.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Workloads", (string)null);
+                    b.ToTable("Workloads");
                 });
 
             modelBuilder.Entity("Office.Web.DAL.Entities.EmployeeEntity", b =>

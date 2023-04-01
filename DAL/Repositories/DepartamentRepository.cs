@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Office.Web.Domain.Models;
 
-
 namespace Office.Web.DAL.Repositories
 {
     public class DepartamentRepository : BaseSqlRepository, IDepartamentRepository
@@ -13,26 +12,42 @@ namespace Office.Web.DAL.Repositories
             _mapper = mapper;
         }
 
-        public async Task<DepartamentModel> Get(int departamentId)
+        public async Task<DepartamentDto> GetGeneralInfo(int departamentId)
         {
-            var result = await Db.Departaments.Where(x => x.Id == departamentId).FirstOrDefaultAsync();
-            var resultModel = _mapper.Map<DepartamentModel>(result);
+            var result = await Db.Departaments
+                //.Include(x => x.Projects)              
+                .Where(x => x.Id == departamentId)
+                .FirstOrDefaultAsync();
+           
+            var resultModel = _mapper.Map<DepartamentDto>(result);
             return resultModel;
         }
 
-        public async Task<List<EmployeeModel>> GetEmployees(int departamentId)
+        public async Task<EmployeeDto> GetDepartamentHead(int departamentId)
         {
-            var result = await Db.Employees.Include(u => u.Workload).Include(x => x.Departament).Where(e => e.DepartamentId == departamentId).ToListAsync();
+            var result = await Db.Employees
+                .Where(e => e.DepartamentId == departamentId)
+                .Where(e => e.IsDepartamentHead == true)
+                .FirstOrDefaultAsync();
             
-             var resultModel = _mapper.Map<List<EmployeeModel>>(result);
+             var resultModel = _mapper.Map<EmployeeDto>(result);
 
           
             
             return resultModel;
         }
 
-       
+        public async Task<List<DepartamentDto>> GetProjectDepartament(int departamentId)
+        {
+            var result = await Db.Departaments
+               .Include(x => x.Projects)
+               .ThenInclude(x => x.Employees)
+               .ThenInclude (x => x.Employee)
+               .Where(x => x.Id == departamentId)
+               .ToListAsync();
 
-
+            var resultModel = _mapper.Map<List<DepartamentDto>>(result);
+            return resultModel;
+        }
     }
 }

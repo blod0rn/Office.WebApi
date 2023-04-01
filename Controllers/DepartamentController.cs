@@ -21,7 +21,7 @@ namespace Office.Web.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetDepartament(int id)
         {
-            var dep = await _departamentService.GetDepartament(id);
+            var dep = await _departamentService.GetInfoDepartament(id);
             if (dep == null)
             {
                 return NotFound();
@@ -34,12 +34,27 @@ namespace Office.Web.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetEmployees(int id)
         {
-            var dep = await _departamentService.GetEmployees(id);
+            var dep = await _departamentService.GetDepartamentHead(id);
             if (dep == null)
             {
                 return NotFound();
             }
             return Ok(dep);
         }
+
+        [HttpGet("{id:int}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetProject(int id)
+        {
+            var dep = await _departamentService.GetProjectDepartament(id);
+            if (dep == null)
+            {
+                return NotFound();
+            }
+            return Ok(dep);
+        }
+
+
     }
 }
