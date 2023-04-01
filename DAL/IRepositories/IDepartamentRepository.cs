@@ -8,6 +8,6 @@ namespace Office.Web.DAL.Repositories
 
         Task <EmployeeDto> GetDepartamentHead(int departamentId);
 
-        Task<List<DepartamentDto>> GetProjectDepartament(int departamentId);
+        Task <DepartamentDto> GetDepartamentInfo(int departamentId);
     }
 }

@@ -4,19 +4,13 @@ namespace Office.Web.Domain.Models
 {
     public class EmployeeProjectDto
     {
-        public string FirstName { get; set; } = null!;
+        public EmployeeDto Employee { get; set; } = null!;
 
-        public string? MiddleName { get; set; }
+        //[JsonIgnore]
+        //public int EmployeeId { get; set; }
 
-        public string LastName { get; set; } = null!;
 
        
-        public WorkloadModel? Workload { get; set; }
-
-        [JsonIgnore]
-        public int WorkloadId { get; set; }
-
-        public string? Skills { get; set; }
 
     }
 }

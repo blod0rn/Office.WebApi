@@ -11,6 +11,6 @@ public class ProjectModel
 
     public string? InfoProject { get; set; }
 
-    public List<EmployeesProjectModel> Employees { get; set; } = new List<EmployeesProjectModel>();
+    public List<EmployeeProjectDto> Employees { get; set; } = new List<EmployeeProjectDto>();
 
 }

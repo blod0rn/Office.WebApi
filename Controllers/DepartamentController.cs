@@ -45,9 +45,9 @@ namespace Office.Web.Controllers
         [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetProject(int id)
+        public async Task<IActionResult> GetDepartamentInfo(int id)
         {
-            var dep = await _departamentService.GetProjectDepartament(id);
+            var dep = await _departamentService.GetInfo(id);
             if (dep == null)
             {
                 return NotFound();

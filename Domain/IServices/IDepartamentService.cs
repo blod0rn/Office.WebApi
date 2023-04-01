@@ -8,6 +8,6 @@ namespace Office.Web.Domain.IServices
 
         Task <EmployeeDto> GetDepartamentHead(int departamentId);
 
-        Task<List<DepartamentDto>> GetProjectDepartament(int departamentId);
+        Task <DepartamentDto> GetInfo(int departamentId);
     }
 }

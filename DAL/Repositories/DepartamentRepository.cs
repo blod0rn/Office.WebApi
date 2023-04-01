@@ -37,16 +37,17 @@ namespace Office.Web.DAL.Repositories
             return resultModel;
         }
 
-        public async Task<List<DepartamentDto>> GetProjectDepartament(int departamentId)
+        public async Task<DepartamentDto> GetDepartamentInfo(int departamentId)
         {
             var result = await Db.Departaments
                .Include(x => x.Projects)
-               .ThenInclude(x => x.Employees)
-               .ThenInclude (x => x.Employee)
+                .ThenInclude(x => x.Employees)
+                    .ThenInclude (x => x.Employee)
+                        .ThenInclude(x => x.Workload)
                .Where(x => x.Id == departamentId)
-               .ToListAsync();
+               .FirstOrDefaultAsync();
 
-            var resultModel = _mapper.Map<List<DepartamentDto>>(result);
+            var resultModel = _mapper.Map<DepartamentDto>(result);
             return resultModel;
         }
     }

@@ -25,9 +25,9 @@ namespace Office.Web.Domain.Services
             return await _departamentRepository.GetDepartamentHead(departamentId);
         }
 
-        public async Task<List<DepartamentDto>> GetProjectDepartament(int departamentId)
+        public async Task<DepartamentDto> GetInfo(int departamentId)
         {
-            return await _departamentRepository.GetProjectDepartament(departamentId);
+            return await _departamentRepository.GetDepartamentInfo(departamentId);
         }
     }
 }
