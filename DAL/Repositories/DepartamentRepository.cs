@@ -14,8 +14,7 @@ namespace Office.Web.DAL.Repositories
 
         public async Task<DepartamentDto> GetGeneralInfo(int departamentId)
         {
-            var result = await Db.Departaments
-                //.Include(x => x.Projects)              
+            var result = await Db.Departaments              
                 .Where(x => x.Id == departamentId)
                 .FirstOrDefaultAsync();
            

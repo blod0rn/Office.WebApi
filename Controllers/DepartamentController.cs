@@ -32,7 +32,7 @@ namespace Office.Web.Controllers
         [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetEmployees(int id)
+        public async Task<IActionResult> GetDepartamentHead(int id)
         {
             var dep = await _departamentService.GetDepartamentHead(id);
             if (dep == null)

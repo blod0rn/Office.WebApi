@@ -29,9 +29,9 @@ public class EmployeeEntity : BaseEntity
 
     public string? Skills { get; set; }
 
-    public bool IsDepartamentHead { get; set; } 
-   
-    
-   
+    public bool IsDepartamentHead { get; set; }
+
+    public List<EmployeesProjectEntity> Projects { get; set; } = new List<EmployeesProjectEntity>();
+
 
 }

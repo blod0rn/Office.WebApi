@@ -4,7 +4,7 @@ using Office.Web.DAL.Entities;
 
 namespace Office.Web.Domain.Models;
 
-public class ProjectModel
+public class ProjectDepartamentDto
 {
     public int Id { get; set; }
     public string NameProject { get; set; } = null!;

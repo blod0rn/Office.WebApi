@@ -13,5 +13,5 @@ public class DepartamentDto
     public string InfoDepartament { get; set; } = null!;
 
 
-    public List<ProjectModel> Projects { get; set; } = new List<ProjectModel>();
+    public List<ProjectDepartamentDto> Projects { get; set; } = new List<ProjectDepartamentDto>();
 }

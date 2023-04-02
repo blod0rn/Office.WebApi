@@ -42,6 +42,9 @@ builder.Services.AddTransient<IDbRepository, DbRepository>();
 builder.Services.AddTransient<IDepartamentRepository, DepartamentRepository>();
 builder.Services.AddTransient<IDepartamentService, DepartamentService>();
 
+builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddTransient<IEmployeeService, EmployeeService>();
+
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IUserService2, UserService2>();
 

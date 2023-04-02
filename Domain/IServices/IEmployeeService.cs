@@ -1,6 +1,9 @@
-﻿namespace Office.Web.Domain.IServices
+﻿using Office.Web.Domain.Models;
+
+namespace Office.Web.Domain.IServices
 {
-    public class IEmployeeService
+    public interface IEmployeeService
     {
+        Task<EmployeeInfoDto> GetEmployeeInfo(int idEmployee);
     }
 }

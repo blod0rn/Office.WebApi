@@ -6,15 +6,11 @@ using Office.Web.DAL.Entities;
 
 namespace Office.Web.Domain.Models;
 
-public partial class EmployeesProjectModel
+public class EmployeesProjectModel
 {
-  
-    public EmployeeDto Employee { get; set; } = null!;
 
-    [JsonIgnore]
-    public int EmployeeId { get; set; }
-
-
+    public ProjectEmployeeDto Project { get; set; } = null!;
+    
     public float ActualEmployment { get; set; }
 
     public float? PlannedEmployment { get; set; }
