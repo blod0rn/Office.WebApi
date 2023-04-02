@@ -1,10 +1,11 @@
-﻿using Office.Web.Domain.Models;
+﻿using Office.Web.DAL.Entities;
+
 
 namespace Office.Web.DAL.IRepositories
 {
     public interface IEmployeeRepository
     {
-        Task<EmployeeInfoDto> GetEmployeeInfo(int idEmployee);
+        Task<EmployeeEntity?> GetEmployeeInfo(int idEmployee);
 
     }
 }

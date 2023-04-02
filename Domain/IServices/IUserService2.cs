@@ -8,6 +8,7 @@ namespace Office.Web.Domain.IServices
     {
         Task<UserModel?> Create(string name, string email, string password);
         Task<UserModel?> Get(int userId);
+        Task<bool> Update(int id, string name, string email, string password);
         Task<bool> Delete(int userId);
     }
 }

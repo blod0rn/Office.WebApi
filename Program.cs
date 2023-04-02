@@ -37,7 +37,7 @@ builder.Services.AddDbContext<OfficedbContext>(opt =>
 
     
     
-builder.Services.AddTransient<IDbRepository, DbRepository>();
+builder.Services.AddTransient<ICrudRepository, CrudRepository>();
 
 builder.Services.AddTransient<IDepartamentRepository, DepartamentRepository>();
 builder.Services.AddTransient<IDepartamentService, DepartamentService>();

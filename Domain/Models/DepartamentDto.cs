@@ -12,6 +12,7 @@ public class DepartamentDto
 
     public string InfoDepartament { get; set; } = null!;
 
+    public string ColorDepartamemnt { get; set; } = null!;
 
     public List<ProjectDepartamentDto> Projects { get; set; } = new List<ProjectDepartamentDto>();
 }

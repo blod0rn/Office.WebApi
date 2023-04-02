@@ -1,13 +1,13 @@
-﻿using Office.Web.Domain.Models;
+﻿using Office.Web.DAL.Entities;
 
 namespace Office.Web.DAL.Repositories
 {
     public interface IDepartamentRepository
     {
-        Task<DepartamentDto> GetGeneralInfo(int departamentId);
+        Task<DepartamentEntity?> GetGeneralInfo(int departamentId);
 
-        Task <EmployeeDto> GetDepartamentHead(int departamentId);
+        Task <EmployeeEntity?> GetDepartamentHead(int departamentId);
 
-        Task <DepartamentDto> GetDepartamentInfo(int departamentId);
+        Task <DepartamentEntity?> GetDepartamentInfo(int departamentId);
     }
 }

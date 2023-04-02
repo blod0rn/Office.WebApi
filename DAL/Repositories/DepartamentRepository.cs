@@ -1,42 +1,33 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using Office.Web.Domain.Models;
+using Office.Web.DAL.Entities;
 
 namespace Office.Web.DAL.Repositories
 {
     public class DepartamentRepository : BaseSqlRepository, IDepartamentRepository
     {
-        private readonly IMapper _mapper;
-        public DepartamentRepository(OfficedbContext db, IMapper mapper) : base(db)
+        public DepartamentRepository(OfficedbContext db) : base(db)
         {
-            _mapper = mapper;
         }
 
-        public async Task<DepartamentDto> GetGeneralInfo(int departamentId)
+        public async Task<DepartamentEntity?> GetGeneralInfo(int departamentId)
         {
             var result = await Db.Departaments              
                 .Where(x => x.Id == departamentId)
                 .FirstOrDefaultAsync();
-           
-            var resultModel = _mapper.Map<DepartamentDto>(result);
-            return resultModel;
+            return result;
         }
 
-        public async Task<EmployeeDto> GetDepartamentHead(int departamentId)
+        public async Task<EmployeeEntity?> GetDepartamentHead(int departamentId)
         {
             var result = await Db.Employees
                 .Where(e => e.DepartamentId == departamentId)
                 .Where(e => e.IsDepartamentHead == true)
-                .FirstOrDefaultAsync();
-            
-             var resultModel = _mapper.Map<EmployeeDto>(result);
-
-          
-            
-            return resultModel;
+                .FirstOrDefaultAsync();   
+            return result;
         }
 
-        public async Task<DepartamentDto> GetDepartamentInfo(int departamentId)
+        public async Task<DepartamentEntity?> GetDepartamentInfo(int departamentId)
         {
             var result = await Db.Departaments
                .Include(x => x.Projects)
@@ -45,9 +36,7 @@ namespace Office.Web.DAL.Repositories
                         .ThenInclude(x => x.Workload)
                .Where(x => x.Id == departamentId)
                .FirstOrDefaultAsync();
-
-            var resultModel = _mapper.Map<DepartamentDto>(result);
-            return resultModel;
+            return result;
         }
     }
 }

@@ -10,10 +10,12 @@ namespace Office.Web.Domain
         public MappingProfile()
         {           
             CreateMap<DepartamentEntity, DepartamentDto>().ReverseMap();
-            
+            CreateMap<DepartamentEntity, DepartamentModel>().ReverseMap();
+
             CreateMap<EmployeeEntity, EmployeeDto>().ReverseMap();            
             CreateMap<EmployeeEntity, EmployeeInfoDto>().ReverseMap();
-            
+            CreateMap<EmployeeEntity, EmployeeModel>().ReverseMap();
+
             CreateMap<ProjectEntity, ProjectEmployeeDto>().ReverseMap();
             CreateMap<ProjectEntity, ProjectDepartamentDto>().ReverseMap();
 
