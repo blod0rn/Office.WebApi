@@ -12,5 +12,6 @@ namespace Office.Web.Domain.IServices
         Task <EmployeeDto> GetDepartamentHead(int departamentId);
 
         Task <DepartamentDto> GetInfo(int departamentId);
+        Task <List<DepartamentDto>> GetAllInfo();
     }
 }

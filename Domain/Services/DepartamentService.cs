@@ -74,6 +74,13 @@ namespace Office.Web.Domain.Services
             var result = await _departamentRepository.GetDepartamentInfo(departamentId);
             var resultModel = _mapper.Map<DepartamentDto>(result);
             return resultModel;
-        }    
+        }
+
+        public async Task <List<DepartamentDto>> GetAllInfo()
+        {
+            var result = await _departamentRepository.GetAllDepartamentInfo();
+            var resultModel = _mapper.Map<List<DepartamentDto>>(result);
+            return resultModel;
+        }
     }
 }

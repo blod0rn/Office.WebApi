@@ -10,11 +10,14 @@ namespace Office.Web.DAL.Repositories
         {
         }
 
-        public async Task<DepartamentEntity?> GetGeneralInfo(int departamentId)
+        public async Task <List<DepartamentEntity?>> GetAllDepartamentInfo()
         {
-            var result = await Db.Departaments              
-                .Where(x => x.Id == departamentId)
-                .FirstOrDefaultAsync();
+            var result = await Db.Departaments
+               .Include(x => x.Projects)
+                .ThenInclude(x => x.Employees)
+                    .ThenInclude(x => x.Employee)
+                        .ThenInclude(x => x.Workload)
+               .ToListAsync();
             return result;
         }
 

@@ -112,6 +112,18 @@ namespace Office.Web.Controllers
             return Ok(dep);
         }
 
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]        
+        public async Task<IActionResult> GetAllDepartamentInfo()
+        {
+            var dep = await _departamentService.GetAllInfo();
+            if (dep == null)
+            {
+                return NotFound();
+            }
+            return Ok(dep);
+        }
+
 
     }
 }

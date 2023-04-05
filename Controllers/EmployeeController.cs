@@ -93,7 +93,7 @@ namespace Office.Web.Controllers
             }
             else return NotFound();
         }
-
+        
         [HttpDelete("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
