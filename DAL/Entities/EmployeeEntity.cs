@@ -12,16 +12,9 @@ public class EmployeeEntity : BaseEntity
     public string? MiddleName { get; set; }
 
     public string LastName { get; set; } = null!;
+    public string? Info { get; set; }
 
     public string Post { get; set; } = null!;
-
-
-    [ForeignKey("WorkloadId")]
-    public WorkloadEntity? Workload { get; set; }
-   
-    [JsonIgnore]
-    public int WorkloadId { get; set; }
-
     
     [ForeignKey("DepartamentId")]
     public DepartamentEntity Departament { get; set; } = null!;

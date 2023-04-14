@@ -4,7 +4,6 @@ namespace Office.Web.Domain.Models
 {
     public class EmployeeModel
     {
-
         [JsonIgnore]
         public int Id { get; set; }
         public string FirstName { get; set; } = null!;
@@ -12,10 +11,8 @@ namespace Office.Web.Domain.Models
         public string? MiddleName { get; set; }
 
         public string LastName { get; set; } = null!;
-
+        public string? Info { get; set; }
         public string Post { get; set; } = null!;
-
-        public int WorkloadId { get; set; }
 
         public int DepartamentId { get; set; }
 

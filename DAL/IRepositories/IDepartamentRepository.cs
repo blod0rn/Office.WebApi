@@ -8,6 +8,6 @@ namespace Office.Web.DAL.Repositories
 
         Task <DepartamentEntity?> GetDepartamentInfo(int departamentId);
 
-        Task <List<DepartamentEntity?>> GetAllDepartamentInfo();
+        Task <List<DepartamentEntity>> GetAllDepartamentInfo();
     }
 }

@@ -22,9 +22,7 @@ namespace Office.Web.Domain
             CreateMap<EmployeesProjectEntity, EmployeesProjectModel>().ReverseMap();            
             CreateMap<EmployeesProjectEntity, EmployeeProjectDto>().ReverseMap();
                                     
-            CreateMap<UserEntity, UserModel>().ReverseMap();
-            
-            CreateMap<WorkloadEntity, WorkloadModel>().ReverseMap();            
+            CreateMap<UserEntity, UserModel>().ReverseMap();          
         }
     }
 }

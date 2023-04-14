@@ -17,7 +17,5 @@ public class DepartamentEntity : BaseEntity
     
     public List<EmployeeEntity> Employees { get; set; } = new List<EmployeeEntity>();
 
-    public List<ProjectEntity> Projects { get; set; } = new List<ProjectEntity>();
-
-
+    
 }

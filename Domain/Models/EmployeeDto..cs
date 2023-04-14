@@ -14,19 +14,13 @@ public class EmployeeDto
     public string? MiddleName { get; set; }
 
     public string LastName { get; set; } = null!;
+    public string? Info { get; set; }
 
     public string Post { get; set; } = null!;
 
-    public WorkloadModel? Workload { get; set; }
-
-    //[JsonIgnore]
-    //public int WorkloadId { get; set; }
-  
     public string? Skills { get; set; }
 
-  
-    //public List<EmployeesProjectModel> EmployeesProjects { get; set; } = new List<EmployeesProjectModel>();
+    public bool IsDepartamentHead { get; set; }
 
-
-
+    public List<EmployeesProjectModel> Projects { get; set; } = new List<EmployeesProjectModel>();
 }

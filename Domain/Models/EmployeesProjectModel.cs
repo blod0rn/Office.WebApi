@@ -8,7 +8,6 @@ namespace Office.Web.Domain.Models;
 
 public class EmployeesProjectModel
 {
-
     public ProjectEmployeeDto Project { get; set; } = null!;
     
     public float ActualEmployment { get; set; }

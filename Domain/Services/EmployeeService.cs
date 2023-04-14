@@ -25,8 +25,8 @@ namespace Office.Web.Domain.Services
             string FirstName, 
             string MiddleName, 
             string LastName, 
-            string Post, 
-            int WorkloadId, 
+            string Info,
+            string Post,  
             int DepartamentId,
             string Skills,
             bool IsDepartamentHead
@@ -37,8 +37,8 @@ namespace Office.Web.Domain.Services
                 FirstName = FirstName,
                 MiddleName = MiddleName,
                 LastName = LastName,
+                Info = Info,
                 Post = Post,
-                WorkloadId = WorkloadId,
                 DepartamentId = DepartamentId,
                 Skills = Skills,
                 IsDepartamentHead = IsDepartamentHead
@@ -59,8 +59,8 @@ namespace Office.Web.Domain.Services
             string FirstName,
             string MiddleName,
             string LastName,
+            string Info,
             string Post,
-            int WorkloadId,
             int DepartamentId,
             string Skills,
             bool IsDepartamentHead
@@ -72,8 +72,8 @@ namespace Office.Web.Domain.Services
                 FirstName = FirstName,
                 MiddleName = MiddleName,
                 LastName = LastName,
+                Info = Info,
                 Post = Post,
-                WorkloadId = WorkloadId,
                 DepartamentId = DepartamentId,
                 Skills = Skills,
                 IsDepartamentHead = IsDepartamentHead

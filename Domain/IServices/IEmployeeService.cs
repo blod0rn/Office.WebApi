@@ -8,8 +8,8 @@ namespace Office.Web.Domain.IServices
             string FirstName, 
             string MiddleName, 
             string LastName,
+            string Info,
             string Post,
-            int WorkloadId,
             int DepartamentId,
             string Skills,
             bool IsDepartamentHead
@@ -20,8 +20,8 @@ namespace Office.Web.Domain.IServices
             string FirstName,
             string MiddleName,
             string LastName,
+            string Info,
             string Post,
-            int WorkloadId,
             int DepartamentId,
             string Skills,
             bool IsDepartamentHead

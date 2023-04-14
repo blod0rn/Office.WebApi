@@ -14,5 +14,5 @@ public class DepartamentDto
 
     public string ColorDepartamemnt { get; set; } = null!;
 
-    public List<ProjectDepartamentDto> Projects { get; set; } = new List<ProjectDepartamentDto>();
+    public List<EmployeeDto> Employees { get; set; } = new List<EmployeeDto>();
 }

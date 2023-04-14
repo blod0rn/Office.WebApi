@@ -32,8 +32,8 @@ namespace Office.Web.Controllers
                 employeeModel.FirstName,
                 employeeModel.MiddleName,
                 employeeModel.LastName,
-                employeeModel.Post,
-                employeeModel.WorkloadId,
+                employeeModel.Info,
+                employeeModel.Post,               
                 employeeModel.DepartamentId,
                 employeeModel.Skills,
                 employeeModel.IsDepartamentHead
@@ -47,8 +47,8 @@ namespace Office.Web.Controllers
                     employee?.FirstName, 
                     employee?.MiddleName, 
                     employee?.LastName,
-                    employee?.Post,
-                    employee?.WorkloadId,
+                    employee.Info,
+                    employee?.Post,                    
                     employee?.DepartamentId,
                     employee?.Skills,
                     employee?.IsDepartamentHead
@@ -82,8 +82,8 @@ namespace Office.Web.Controllers
                 employeeModel.FirstName,
                 employeeModel.MiddleName,
                 employeeModel.LastName,
-                employeeModel.Post,
-                employeeModel.WorkloadId,
+                employeeModel.Info,
+                employeeModel.Post,                
                 employeeModel.DepartamentId,
                 employeeModel.Skills,
                 employeeModel.IsDepartamentHead

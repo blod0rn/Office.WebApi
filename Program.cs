@@ -31,7 +31,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<OfficedbContext>(opt =>
 {
-    opt.UseNpgsql("Host=localhost;Port=5432;Database=officeDb;Username=postgres;Password=admin");
+    opt.UseNpgsql("" +
+        "Host=dpg-cgnjqct269v5rjertji0-a;" +
+        "Port=5432;" +
+        "Database=db_3doffice;" +
+        "Username=db_3doffice_user;" +
+        "Password=NCfw4CoSKZlzGSvATzcQ2Aq4M3ylZdX8"
+        );
 }
 );
 
