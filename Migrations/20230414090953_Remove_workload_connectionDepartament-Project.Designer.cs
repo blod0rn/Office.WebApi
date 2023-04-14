@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Office.Web.DAL;
@@ -11,9 +12,11 @@ using Office.Web.DAL;
 namespace Office.Web.Migrations
 {
     [DbContext(typeof(OfficedbContext))]
-    partial class OfficedbContextModelSnapshot : ModelSnapshot
+    [Migration("20230414090953_Remove_workload_connectionDepartament-Project")]
+    partial class Remove_workload_connectionDepartamentProject
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

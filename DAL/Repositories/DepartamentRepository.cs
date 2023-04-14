@@ -15,15 +15,8 @@ namespace Office.Web.DAL.Repositories
             var result = await Db.Departaments
                 .Include(x => x.Employees)
                     .ThenInclude(x => x.Projects)
-                        //.ThenInclude(x => x.Project)
                .ToListAsync();
             return result;
-            //var result = await Db.Departaments
-            //   .Include(x => x.Projects)
-            //    .ThenInclude(x => x.Employees)
-            //        .ThenInclude(x => x.Employee)                       
-            //   .ToListAsync();
-            //return result;
         }
 
         public async Task<EmployeeEntity?> GetDepartamentHead(int departamentId)
@@ -38,9 +31,8 @@ namespace Office.Web.DAL.Repositories
         public async Task<DepartamentEntity?> GetDepartamentInfo(int departamentId)
         {
             var result = await Db.Departaments
-               .Include(x => x.Projects)
-                .ThenInclude(x => x.Employees)
-                    .ThenInclude (x => x.Employee)                      
+                .Include(x => x.Employees)
+                    .ThenInclude (x => x.Projects)                      
                .Where(x => x.Id == departamentId)
                .FirstOrDefaultAsync();
             return result;
