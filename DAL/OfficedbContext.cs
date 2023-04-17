@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Office.Web.DAL.Entities;
-using Office.Web.Domain.Models;
 
 
 namespace Office.Web.DAL;

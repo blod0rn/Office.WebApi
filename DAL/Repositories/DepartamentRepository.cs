@@ -15,6 +15,7 @@ namespace Office.Web.DAL.Repositories
             var result = await Db.Departaments
                 .Include(x => x.Employees)
                     .ThenInclude(x => x.Projects)
+                        .ThenInclude(x => x.Project)
                .ToListAsync();
             return result;
         }
@@ -32,7 +33,8 @@ namespace Office.Web.DAL.Repositories
         {
             var result = await Db.Departaments
                 .Include(x => x.Employees)
-                    .ThenInclude (x => x.Projects)                      
+                    .ThenInclude (x => x.Projects)
+                        .ThenInclude(x => x.Project)
                .Where(x => x.Id == departamentId)
                .FirstOrDefaultAsync();
             return result;

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Office.Web.Domain.IServices;
 using Office.Web.Domain.Models;
@@ -9,6 +10,7 @@ namespace Office.Web.Controllers
     [Route("api/[controller]/[action]")]
     [ApiController]
     [EnableCors("_myAllowSpecificOrigins")]
+    [Authorize]
     public class DepartamentController : ControllerBase
     {
         private readonly IDepartamentService _departamentService;

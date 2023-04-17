@@ -1,9 +1,14 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Office.Auth.Common;
 using Office.Web.DAL;
 using Office.Web.DAL.IRepositories;
 using Office.Web.DAL.Repositories;
 using Office.Web.Domain.IServices;
 using Office.Web.Domain.Services;
+using System.Text;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,18 +36,36 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<OfficedbContext>(opt =>
 {
-    opt.UseNpgsql("" +
-        "Host=dpg-cgnjqct269v5rjertji0-a;" +
-        "Port=5432;" +
-        "Database=db_3doffice;" +
-        "Username=db_3doffice_user;" +
-        "Password=NCfw4CoSKZlzGSvATzcQ2Aq4M3ylZdX8"
-        );
+    opt.UseNpgsql("Host=localhost;Port=5432;Database=officeDb;Username=postgres;Password=admin");
 }
 );
 
-    
-    
+//var authOptions = builder.Configuration.GetSection("Auth");
+//builder.Services.Configure<AuthOptions>(authOptions);
+
+builder.Services.AddAuthentication(opt =>
+{
+    opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidIssuer = builder.Configuration["Auth:Issuer"],
+
+            ValidateAudience = true,
+            ValidAudience = builder.Configuration["Auth:Audience"],
+            
+            ValidateLifetime = true,
+                   
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["Auth:Secret"])),
+            ValidateIssuerSigningKey = true
+        };
+    });
+
+
 builder.Services.AddTransient<ICrudRepository, CrudRepository>();
 
 builder.Services.AddTransient<IDepartamentRepository, DepartamentRepository>();
@@ -54,10 +77,6 @@ builder.Services.AddTransient<IEmployeeService, EmployeeService>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IUserService2, UserService2>();
 
-
-
-
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -66,21 +85,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.UseHttpsRedirection();
 
 app.UseCors(MyAllowSpecificOrigins);
-
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
-
-
-
 
 app.Run();

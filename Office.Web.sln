@@ -5,6 +5,10 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Office.Web", "Office.Web.csproj", "{DE0E9088-E776-4EB6-9A7A-8237319399F6}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Office.Auth.Api", "..\Office.Auth.Api\Office.Auth.Api.csproj", "{F46B5ACD-5992-47D6-A8CE-94D228A8E6EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Office.Auth.Common", "..\Office.Auth.Common\Office.Auth.Common.csproj", "{9701FE3D-C812-458F-80C3-E1EB660F1248}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{DE0E9088-E776-4EB6-9A7A-8237319399F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE0E9088-E776-4EB6-9A7A-8237319399F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE0E9088-E776-4EB6-9A7A-8237319399F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F46B5ACD-5992-47D6-A8CE-94D228A8E6EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F46B5ACD-5992-47D6-A8CE-94D228A8E6EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F46B5ACD-5992-47D6-A8CE-94D228A8E6EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F46B5ACD-5992-47D6-A8CE-94D228A8E6EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9701FE3D-C812-458F-80C3-E1EB660F1248}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9701FE3D-C812-458F-80C3-E1EB660F1248}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9701FE3D-C812-458F-80C3-E1EB660F1248}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9701FE3D-C812-458F-80C3-E1EB660F1248}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
