@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "slYql2qgSICu9DaCL8SN7j1ZQjnJmGusRxqzkUykuVncqw5tID/hK9zxSPtaPIejDg9YH7EeaA2QiclH+7S8BQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\blod0\\source\\repos\\Office.Auth.Common\\Office.Auth.Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\blod0\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\blod0\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.29.0\\microsoft.identitymodel.abstractions.6.29.0.nupkg.sha512",
+    "C:\\Users\\blod0\\.nuget\\packages\\microsoft.identitymodel.logging\\6.29.0\\microsoft.identitymodel.logging.6.29.0.nupkg.sha512",
+    "C:\\Users\\blod0\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.29.0\\microsoft.identitymodel.tokens.6.29.0.nupkg.sha512",
+    "C:\\Users\\blod0\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,12 @@
+C:\Users\blod0\source\repos\Office.Auth.Common\bin\Debug\net6.0\Office.Auth.Common.deps.json
+C:\Users\blod0\source\repos\Office.Auth.Common\bin\Debug\net6.0\Office.Auth.Common.dll
+C:\Users\blod0\source\repos\Office.Auth.Common\bin\Debug\net6.0\Office.Auth.Common.pdb
+C:\Users\blod0\source\repos\Office.Auth.Common\obj\Debug\net6.0\Office.Auth.Common.csproj.AssemblyReference.cache
+C:\Users\blod0\source\repos\Office.Auth.Common\obj\Debug\net6.0\Office.Auth.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\blod0\source\repos\Office.Auth.Common\obj\Debug\net6.0\Office.Auth.Common.AssemblyInfoInputs.cache
+C:\Users\blod0\source\repos\Office.Auth.Common\obj\Debug\net6.0\Office.Auth.Common.AssemblyInfo.cs
+C:\Users\blod0\source\repos\Office.Auth.Common\obj\Debug\net6.0\Office.Auth.Common.csproj.CoreCompileInputs.cache
+C:\Users\blod0\source\repos\Office.Auth.Common\obj\Debug\net6.0\Office.Auth.Common.dll
+C:\Users\blod0\source\repos\Office.Auth.Common\obj\Debug\net6.0\refint\Office.Auth.Common.dll
+C:\Users\blod0\source\repos\Office.Auth.Common\obj\Debug\net6.0\Office.Auth.Common.pdb
+C:\Users\blod0\source\repos\Office.Auth.Common\obj\Debug\net6.0\ref\Office.Auth.Common.dll
